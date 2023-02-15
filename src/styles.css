@@ -10,9 +10,13 @@ h1 {
     line-height: 48px;
     margin: 20px 0 10px;
 }
-.weather-app {
+.weather-app-wrapper {
     max-width: 780px;
     margin: 30px auto;
+
+}
+.weather-app {
+    
     padding: 25px;
     border: 1px solid rgb(194, 194, 194);
     border-radius: 20px;
@@ -29,4 +33,22 @@ li {
     line-height: 20px;
     list-style: none;
     margin-bottom: 10px;
+}
+.temperature {
+    font-size: 80px;
+    
+}
+
+.col {
+    text-align: center;
+}
+
+.weather-temperature img {
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+}
+.weather-temperature strong {
+    font-size: 80px;
+    line-height: 1;
 }
