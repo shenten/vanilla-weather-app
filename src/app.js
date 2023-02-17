@@ -40,9 +40,9 @@ function displayTemperature(response){
 
 function displayTemperatureForecast(response){
 
-    let temperatureElementHigh = document.querySelector("#highTemp");
+    let temperatureElementHigh = document.querySelector(".weather-forecast-temperature-max");
     temperatureElementHigh.innerHTML = Math.round(response.data.daily[0].temperature.maximum);
-    let temperatureElementLow = document.querySelector("#lowTemp");
+    let temperatureElementLow = document.querySelector(".weather-forecast-temperature-min");
     temperatureElementLow.innerHTML = Math.round(response.data.daily[0].temperature.minimum);
 }
 
