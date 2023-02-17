@@ -22,6 +22,26 @@
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
+          <form id="search-form" class="mb-5">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Type a city.."
+                  class="form-control"
+                  id="city-input"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary w-100"
+                />
+              </div>
+            </div>
+          </form>
           <h1 id="city">New York</h1>
           <div class="row">
             <div class="col-6">
@@ -57,35 +77,72 @@
             <div class="col">
               <ul>
                 <div>wed</div>
-                <div><i class="fa-solid fa-cloud"></i></div>
-                <div>12°6°</div>
+                <div>
+                  <img
+                    src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
+                    alt="Clear"
+                    id="icon1"
+                    class="temperatureIconDays"
+                  />
+                </div>
+                <div>
+                  <span id="highTemp">12</span>° <span id="lowTemp">6</span>°
+                </div>
               </ul>
             </div>
             <div class="col">
               <ul>
                 <div>thur</div>
-                <div><i class="fa-solid fa-cloud"></i></div>
+                <div>
+                  <img
+                    src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
+                    alt="Clear"
+                    id="icon2"
+                    class="temperatureIconDays"
+                  />
+                </div>
                 <div>12°6°</div>
               </ul>
             </div>
             <div class="col">
               <ul>
                 <div>fri</div>
-                <div><i class="fa-solid fa-cloud"></i></div>
+                <div>
+                  <img
+                    src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
+                    alt="Clear"
+                    id="icon3"
+                    class="temperatureIconDays"
+                  />
+                </div>
                 <div>12°6°</div>
               </ul>
             </div>
             <div class="col">
               <ul>
                 <div>sat</div>
-                <div><i class="fa-solid fa-cloud"></i></div>
+                <div>
+                  <img
+                    src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
+                    alt="Clear"
+                    id="icon4"
+                    class="temperatureIconDays"
+                  />
+                </div>
                 <div>12°6°</div>
               </ul>
             </div>
             <div class="col">
               <ul>
                 <div>sun</div>
-                <div><i class="fa-solid fa-cloud"></i></div>
+                <div>
+                  <img
+                    src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
+                    alt="Clear"
+                    id="icon5"
+                    class="temperatureIconDays"
+                  />
+                </div>
                 <div>12°6°</div>
               </ul>
             </div>

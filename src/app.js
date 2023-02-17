@@ -34,9 +34,31 @@ function displayTemperature(response){
    dateElement.innerHTML = formatDate(response.data.time * 1000);
    iconElement.setAttribute("src", response.data.condition.icon_url)
    iconElement.setAttribute("alt", response.data.condition.icon)
+  
 }
-let city = "Erbil"
+
+function displayTemperatureForecast(response){
+
+    let temperatureElementHigh = document.querySelector("#highTemp");
+    temperatureElementHigh.innerHTML = Math.round(response.data.daily[0].temperature.maximum);
+    let temperatureElementLow = document.querySelector("#lowTemp");
+    temperatureElementLow.innerHTML = Math.round(response.data.daily[0].temperature.minimum);
+}
+
+function search(city){
 let apiKey = `t95eob0fafd730717b08ab0a804ec543`;
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`
 axios.get(apiUrl).then(displayTemperature);
+axios.get(apiUrlForecast).then(displayTemperatureForecast);
+}
 
+function handleSubmit(event){
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+   search(cityInputElement.value);
+}
+
+
+let form = document.querySelector("#search-form")
+form.addEventListener("submit", handleSubmit)
