@@ -61,6 +61,17 @@ li {
     top: 3px;
     font-size: 20px;
 }
-#farenheit {
+#farenheit, #celcius  {
    text-decoration: none;
+}
+
+.weather-temperature .active {
+    color: black;
+    cursor: default;
+    
+}
+
+.weather-temperature .active:hover {
+    text-decoration: none;
+
 }
