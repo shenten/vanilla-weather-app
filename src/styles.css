@@ -34,12 +34,10 @@ li {
     line-height: 20px;
     list-style: none;
     margin-bottom: 10px;
-    text-transform: capitalize;
+    
  }
 
-.windUnits {
-    text-transform: lowercase;
-}
+
 .temperature {
     font-size: 80px;
     

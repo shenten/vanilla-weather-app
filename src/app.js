@@ -17,23 +17,24 @@ function formatDate(timestamp){
 
 
 function displayTemperature(response){
-    console.log(response);
+  
    let temperatureElement = document.querySelector("#temperature");
-   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
    let cityElement = document.querySelector("#city");
-   cityElement.innerHTML = response.data.city;
    let descriptionElemnt = document.querySelector("#description");
-   descriptionElemnt.innerHTML = response.data.condition.description;
    let humidityElement = document.querySelector("#humidity");
-   humidityElement.innerHTML = response.data.temperature.humidity;
    let windElement = document.querySelector("#wind");
-   windElement.innerHTML = response.data.wind.speed;
    let dateElement = document.querySelector("#date");
+   
+   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+   cityElement.innerHTML = response.data.city;
+   descriptionElemnt.innerHTML = response.data.condition.description;
+   humidityElement.innerHTML = response.data.temperature.humidity;
+   windElement.innerHTML = response.data.wind.speed;
    dateElement.innerHTML = formatDate(response.data.time * 1000);
-    console.log(response.data.time);
-}
 
-apiKey = `t95eob0fafd730717b08ab0a804ec543`;
-apiUrl = `https://api.shecodes.io/weather/v1/current?query=${"erbil"}&key=${apiKey}&units=metric`;
+}
+let city = "London"
+let apiKey = `t95eob0fafd730717b08ab0a804ec543`;
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemperature);
 
