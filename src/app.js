@@ -14,7 +14,12 @@ function formatDate(timestamp){
     
 }
 
+function getForecast(coordinates) {
+    let apiKey = `t95eob0fafd730717b08ab0a804ec543`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`
+    axios.get(apiUrl).then(displayForcast)
 
+}
 
 function displayTemperature(response){
   
@@ -35,23 +40,17 @@ function displayTemperature(response){
    dateElement.innerHTML = formatDate(response.data.time * 1000);
    iconElement.setAttribute("src", response.data.condition.icon_url)
    iconElement.setAttribute("alt", response.data.condition.icon)
+
+   getForecast(response.data.coordinates);
   
 }
 
-function displayTemperatureForecast(response){
-
-    let temperatureElementHigh = document.querySelector(".weather-forecast-temperature-max");
-    temperatureElementHigh.innerHTML = Math.round(response.data.daily[0].temperature.maximum);
-    let temperatureElementLow = document.querySelector(".weather-forecast-temperature-min");
-    temperatureElementLow.innerHTML = Math.round(response.data.daily[0].temperature.minimum);
-}
 
 function search(city){
 let apiKey = `t95eob0fafd730717b08ab0a804ec543`;
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`
 axios.get(apiUrl).then(displayTemperature);
-axios.get(apiUrlForecast).then(displayTemperatureForecast);
+
 }
 
 function handleSubmit(event){
@@ -76,8 +75,8 @@ function displayCelciusTemp(event){
     temperatureElement.innerHTML = Math.round(celciusTemperature);
 }
 
-function displayForcast(){
-
+function displayForcast(response){
+console.log(response.data.daily)
     let forecastElement = document.querySelector("#forecast");
     let forecastHTML = `<div class="row">`;
     let days = ["Thurs", "Fri", "Sat", "Sun"];
@@ -93,8 +92,8 @@ function displayForcast(){
                   />
                 </div>
                 <div class="weather-forecast-temperatures">
-                  <span class="weather-forecast-temperature-max"> 18 </span>°
-                  <span class="weather-forecast-temperature-min"> 12 </span>°
+                  <span class="weather-forecast-temperature-max"> </span>°
+                  <span class="weather-forecast-temperature-min"> </span>°
                 </div>
               </div>`});
     forecastHTML = forecastHTML + `</div>`;
@@ -102,6 +101,10 @@ function displayForcast(){
 
 
 }
+
+
+
+
 
 let celciusTemperature = null;
 
