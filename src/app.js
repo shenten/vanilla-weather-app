@@ -17,7 +17,7 @@ function formatDate(timestamp){
 function getForecast(coordinates) {
     let apiKey = `t95eob0fafd730717b08ab0a804ec543`;
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`
-    axios.get(apiUrl).then(displayForcast)
+    axios.get(apiUrl).then(displayForecast)
 
 }
 
@@ -75,35 +75,33 @@ function displayCelciusTemp(event){
     temperatureElement.innerHTML = Math.round(celciusTemperature);
 }
 
-function displayForcast(response){
-console.log(response.data.daily)
-    let forecastElement = document.querySelector("#forecast");
-    let forecastHTML = `<div class="row">`;
-    let days = ["Thurs", "Fri", "Sat", "Sun"];
-    days.forEach(function(day) {
-    forecastHTML = forecastHTML + `<div class="col-2">
-                <div class="weather-forecast-date">${day}</div>
-                <div>
-                  <img
-                    src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
-                    alt="Clear"
-                    id="icon1"
-                    class="temperatureIconDays"
-                  />
-                </div>
-                <div class="weather-forecast-temperatures">
-                  <span class="weather-forecast-temperature-max"> </span>°
-                  <span class="weather-forecast-temperature-min"> </span>°
-                </div>
-              </div>`});
-    forecastHTML = forecastHTML + `</div>`;
-    forecastElement.innerHTML = forecastHTML;
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  if (!forecast || forecast.length === 0) {
+    forecastElement.innerHTML = "<div>No forecast available.</div>";
+    return;
+  }
 
-
+  let forecastHTML = "<div class='row'>";
+  let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let today = new Date();
+  for (let i = 1; i < 6; i++) {
+    let date = new Date(today.getTime() + i * 24 * 60 * 60 * 1000);
+    let weekday = daysOfWeek[date.getDay()];
+    let day = forecast[i - 1];
+    forecastHTML += `<div class="col-2">
+      <div class="weather-forecast-date">${weekday}</div>
+      <div><img src="${day.condition.icon_url}" /></div>
+      <div class="weather-forecast-temperatures">
+        <span class="weather-forecast-temperature-maximum">${Math.round(day.temperature.maximum)}</span>°
+        <span class="weather-forecast-temperature-minimum">${Math.round(day.temperature.minimum)}</span>°
+      </div>
+    </div>`;
+  }
+  forecastHTML += "</div>";
+  forecastElement.innerHTML = forecastHTML;
 }
-
-
-
 
 
 let celciusTemperature = null;
@@ -118,4 +116,3 @@ let form = document.querySelector("#search-form")
 form.addEventListener("submit", handleSubmit)
 
 search("London")
-displayForcast()
