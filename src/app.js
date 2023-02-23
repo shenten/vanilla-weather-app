@@ -59,21 +59,7 @@ function handleSubmit(event){
    search(cityInputElement.value);
 }
 
-function displayFareheitTemp(event){
-    event.preventDefault();
-    celciusLink.classList.remove("active");
-    farenheitLink.classList.add("active");
-    let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(celciusTemperature * 9/5 + 32);
-}
 
-function displayCelciusTemp(event){
-    event.preventDefault();
-    farenheitLink.classList.remove("active");
-    celciusLink.classList.add("active");
-    let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(celciusTemperature);
-}
 
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -106,11 +92,7 @@ function displayForecast(response) {
 
 let celciusTemperature = null;
 
-let farenheitLink = document.querySelector("#farenheit");
-farenheitLink.addEventListener("click", displayFareheitTemp);
 
-let celciusLink = document.querySelector("#celcius");
-celciusLink.addEventListener("click", displayCelciusTemp);
 
 let form = document.querySelector("#search-form")
 form.addEventListener("submit", handleSubmit)
