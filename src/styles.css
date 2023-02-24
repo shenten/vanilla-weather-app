@@ -1,7 +1,8 @@
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+background-color: rgb(251, 242, 244);
 }
+
 
 h1 {
     color: #272142;
@@ -13,14 +14,14 @@ h1 {
 }
 .weather-app-wrapper {
     max-width: 750px;
-    margin: 30px auto;
-
+    margin: 75px auto;
 }
 .weather-app {
     
     padding: 50px;
-    border: 1px solid rgb(194, 194, 194);
+    border: 1px solid white;
     border-radius: 20px;
+    background-color: white;
 }
 ul {
     padding: 0;
@@ -38,10 +39,8 @@ li {
     
  }
 
-
 .temperature {
     font-size: 80px;
-    
 }
 
 .col {
@@ -64,19 +63,10 @@ li {
     top: 3px;
     font-size: 20px;
 }
-#farenheit, #celcius  {
+ #celcius  {
    text-decoration: none;
-}
-
-.weather-temperature .active {
-    color: black;
+   color: black;
     cursor: default;
-    
-}
-
-.weather-temperature .active:hover {
-    text-decoration: none;
-
 }
 
 .col-2 {
@@ -89,4 +79,7 @@ li {
     display: flex;
   justify-content: center;
 
+}
+.weather-forecast-temperature-minimum {
+    margin-left:10px ;
 }
