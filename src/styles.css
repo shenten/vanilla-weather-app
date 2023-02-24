@@ -6,7 +6,7 @@ background-color: rgb(251, 242, 244);
 
 h1 {
     color: #272142;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 700;
     line-height: 29px;
     line-height: 48px;
@@ -29,18 +29,20 @@ ul {
     margin-bottom: 30px;
     margin-top: 10px;
 }
-li {
-    color: black;
+li, .weather-forecast-date {
+    color: rgb(131, 128, 128);
     font-size: 16px;
-    font-weight: 500;
     line-height: 20px;
     list-style: none;
-    margin-bottom: 10px;
-    
+    margin-bottom: 5px;
+    font-weight: 300;
  }
+.description {
+  text-transform: capitalize;
 
-.temperature {
-    font-size: 80px;
+}
+ .dataCSS {
+    color: blue;
 }
 
 .col {
@@ -50,17 +52,21 @@ li {
 .weather-temperature img {
    position: relative;
    top: -30px;
+    left: 30px;
     margin-right: 0px;
     width: 150px;
     height: 150px;
 }
 .weather-temperature strong {
+    position: relative;
+    left: 30px;
     font-size: 80px;
     line-height: 1;
 }
 .weather-temperature .units {
     position: relative;
     top: 3px;
+    left: 30px;;
     font-size: 20px;
 }
  #celcius  {
@@ -72,14 +78,29 @@ li {
 .col-2 {
     text-align: center;
     margin: 0 10px;
-    
 }
 
-.row {
-    display: flex;
-  justify-content: center;
-
-}
 .weather-forecast-temperature-minimum {
     margin-left:10px ;
+   
+}
+.weather-forecast-max {
+    color: blue;
+}
+.weather-forecast-min {
+   color: rgb(141, 141, 237);
+}
+.form-control {
+    padding: 12px 0 12px 12px;
+    background-color: rgb(251, 242, 244);
+    border-color: white;
+   
+}
+.btn {
+    padding: 12px;
+    border-color: white;
+    font-weight: bold;
+    }
+.col-9 {
+    padding-right: 0;
 }

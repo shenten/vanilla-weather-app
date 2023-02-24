@@ -78,10 +78,10 @@ function displayForecast(response) {
     let day = forecast[i - 1];
     forecastHTML += `<div class="col-2">
       <div class="weather-forecast-date">${weekday}</div>
-      <div><img src="${day.condition.icon_url}" /></div>
+      <div class="iconForecast"><img src="${day.condition.icon_url}" /></div>
       <div class="weather-forecast-temperatures">
-        <span class="weather-forecast-temperature-maximum">${Math.round(day.temperature.maximum)}</span>°
-        <span class="weather-forecast-temperature-minimum">${Math.round(day.temperature.minimum)}</span>°
+        <span class="weather-forecast-max"><span class="weather-forecast-temperature-maximum">${Math.round(day.temperature.maximum)}</span>°</span>
+        <span class="weather-forecast-min"><span class="weather-forecast-temperature-minimum">${Math.round(day.temperature.minimum)}</span>°</span>
       </div>
     </div>`;
   }
